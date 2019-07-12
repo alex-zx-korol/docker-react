@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t akor2docker/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run akor2docker/docker-react npm run test -- --coverage
